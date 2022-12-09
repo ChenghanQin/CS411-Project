@@ -44,3 +44,14 @@ def count(data):
 "return random selection from data group"
 def randomselect(data): 
    return random.randint(0,count(data)-1)
+
+def related_items(name, data):
+    key_words = name.split()
+    new_data = []
+    for item in data:
+        if name != item['name']:
+            for key in key_words:
+                if key in item['name']:
+                    new_data.append(item)
+                    break
+    return new_data
